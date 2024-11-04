@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+components/: Chứa các thành phần giao diện như đăng nhập, đăng ký, dashboard, danh sách dự án, bảng Kanban.
+context/: Quản lý trạng thái ứng dụng (ví dụ: trạng thái đăng nhập, dữ liệu người dùng).
+services/: Chứa các hàm gọi API đến backend (đăng nhập, lấy danh sách dự án, task).
+hooks/: Các custom hooks để tái sử dụng logic (ví dụ: useAuth để kiểm tra trạng thái đăng nhập).
+pages/: Chứa các trang của ứng dụng (trang chủ, trang đăng nhập, trang đăng ký).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+DKING/          # Thư mục gốc của frontend (ReactJS)
+│
+├── public/          # Thư mục chứa các tài nguyên tĩnh như favicon, index.html
+│   └── index.html
+│
+├── src/             # Thư mục chứa mã nguồn chính của ứng dụng React
+│   ├── assets/      # Chứa các file hình ảnh, biểu tượng
+│   │   └── logo.png
+│   │
+│   ├── components/  # Chứa các component UI của ứng dụng
+│   │   ├── Auth/    # Chứa các component liên quan đến Authentication
+│   │   │   ├── LoginPage.js
+│   │   │   ├── RegisterPage.js
+│   │   │   └── ProtectedRoute.js  # Route bảo vệ cho các trang chỉ có quyền đăng nhập mới truy cập được
+│   │   │
+│   │   ├── Dashboard/  # Chứa giao diện dashboard của người dùng
+│   │   │   ├── Dashboard.js
+│   │   │   ├── ProjectList.js  # Hiển thị danh sách các dự án
+│   │   │   └── TaskBoard.js    # Hiển thị bảng Kanban với các task
+│   │   │
+│   │   ├── Project/   # Giao diện liên quan đến project
+│   │   │   ├── ProjectDetail.js
+│   │   │   └── ProjectCard.js
+│   │   │
+│   │   ├── Task/      # Giao diện liên quan đến task
+│   │   │   ├── TaskCard.js
+│   │   │   └── TaskDetail.js
+│   │
+│   ├── context/      # Context API để quản lý trạng thái chung như User Context, Project Context
+│   │   └── AuthContext.js
+│   │
+│   ├── hooks/        # Custom hooks cho ứng dụng
+│   │   └── useAuth.js  # Hook để quản lý trạng thái người dùng đăng nhập
+│   │
+│   ├── pages/        # Các trang chính của ứng dụng
+│   │   ├── HomePage.js
+│   │   ├── LoginPage.js
+│   │   └── RegisterPage.js
+│   │
+│   ├── services/     # Chứa các hàm gọi API qua Axios
+│   │   ├── authService.js
+│   │   ├── projectService.js
+│   │   └── taskService.js
+│   │
+│   ├── App.js        # Component gốc của ứng dụng React
+│   ├── index.js      # Điểm vào chính của ứng dụng React
+│   ├── routes.js     # Cấu hình các route
+│   └── App.css       # CSS chính của ứng dụng
+│
+├── package.json      # File cấu hình của npm
+└── .env              # File cấu hình biến môi trường (nếu cần)
